@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-end 
+  mount Sidekiq::Web => '/sidekiq'
+end
