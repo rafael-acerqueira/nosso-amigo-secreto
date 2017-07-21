@@ -1,5 +1,7 @@
-<h1>Campaign#raffle</h1>
+<h1>Olá <%=@member.name%></h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/campaign_mailer/raffle.html.erb
+  Esta participando do sorteio feito por <%= @campaign.user.name %>
 </p>
+
+<%= link_to 'Abri email', "/members/#{@member.token}/opened" %>

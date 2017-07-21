@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     post 'raffle', on: :member
   end
 
-  root_to: 'pages#home'
+  root to: 'pages#home'
 end
