@@ -5,6 +5,7 @@ class CampaignsController < ApplicationController
   before_action :is_owner?, only: [:show, :destroy, :update, :raffle]
 
   def show
+    @member = Member.new
   end
 
   def index
