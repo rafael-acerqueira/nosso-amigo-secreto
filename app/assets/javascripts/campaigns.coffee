@@ -13,8 +13,16 @@ $(document).on 'turbolinks:load', ->
           Materialize.toast('Problema na atualização da Campanha', 4000, 'red')
     return false
 
-  $('.remove_campaign').on 'submit', (e) ->
-    $.ajax e.target.action,
+  $('.remove_campaign').click (e) ->
+    $('#remove_campaign_modal').modal('open')
+    campaign_id = e.currentTarget.id.split("edit_campaign_")[1]
+    $('.remove_campaign_form').attr('action', "campaigns/" + campaign_id)
+    $('#campaign_remove_id').val(campaign_id)
+    return false
+
+
+  $('.remove_campaign_form').on 'submit', (e) ->
+    $.ajax "/campaigns/" + $('#campaign_remove_id').val(),
         type: 'DELETE'
         dataType: 'json',
         data: {}
@@ -22,6 +30,7 @@ $(document).on 'turbolinks:load', ->
           $(location).attr('href','/campaigns');
         error: (jqXHR, textStatus, errorThrown) ->
           Materialize.toast('Problema na remoção da Campanha', 4000, 'red')
+    $('#remove_campaign_modal').modal('close')
     return false
 
   $('.raffle_campaign').on 'submit', (e) ->
