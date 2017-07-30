@@ -55,14 +55,16 @@
             <% @campaign.members.each do |m| %>
               <div class="member" id="member_<%= m.id %>">
                 <div class="row">
-                  <div class="col s12 m5 input-field">
-                    <input id="name" type="text" class="validate" value="<%= m.name %>">
-                    <label for="name" class="active">Nome</label>
-                  </div>
-                  <div class="col s12 m5 input-field">
-                    <input id="email" type="email" class="validate" value="<%= m.email %>">
-                    <label for="email" class="active" data-error="Formato incorreto">Email</label>
-                  </div>
+                  <%= form_for m, url: member_path(m), method: :put, html: { class: "update_member"} do |f| %>
+                    <div class="col s12 m5 input-field">
+                      <%= f.text_field :name, class: 'validate update_member_fields', id: 'update_member_name' %>
+                      <label for="name" class="active">Nome</label>
+                    </div>
+                    <div class="col s12 m5 input-field">
+                      <%= f.text_field :email, class: 'validate update_member_fields', id: 'update_member_email' %>
+                      <label for="email" class="active" data-error="Formato incorreto">Email</label>
+                    </div>
+                  <% end %>
                   <div class="col s3 offset-s3 m1 input-field">
                     <i class="material-icons icon <%= (m.open)? 'opened' : '' %>">visibility</i>
                   </div>
@@ -70,6 +72,7 @@
                     <a href="#" class="remove_member" id="<%= m.id %>">
                       <i class="material-icons icon">delete</i>
                     </a>
+                    <div id="member_remove_id"></div>
                   </div>
                 </div>
               </div>
@@ -111,3 +114,5 @@
     </div>
   </div>
 </div>
+
+<%= render "remove_member_modal" %>
