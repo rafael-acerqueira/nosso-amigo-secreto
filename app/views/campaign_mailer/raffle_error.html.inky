@@ -1,0 +1,24 @@
+<container class="body-drip">
+  <spacer size="16"></spacer>
+
+  <!-- <center> -->
+    <row>
+      <columns large="2">
+      </columns>
+      <columns large="1" class="center">
+        <img src="http://localhost:3000/assets/logo.png" alt="">
+      </columns>
+      <columns large="8">
+        <h4>Nosso Amigo Secreto</h4>
+      </columns>
+    </row>
+  <!-- </center> -->
+
+  <spacer size="16"></spacer>
+
+  <row>
+    <columns>
+      <h4 class="text-center">Erro durante a criação da  campanha: <%= @campaign.title %></h4>
+    </columns>
+  </row>
+</container>
