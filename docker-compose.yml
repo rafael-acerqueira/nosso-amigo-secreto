@@ -18,7 +18,7 @@ services:
     depends_on:
       - 'postgres'
       - 'redis'
-      - 'website'
+      - 'app'
     build: .
     command: bash start_jobs
     volumes:
@@ -26,7 +26,7 @@ services:
     volumes_from:
       - box
 
-  website:
+  app:
     depends_on:
       - 'postgres'
       - 'redis'
