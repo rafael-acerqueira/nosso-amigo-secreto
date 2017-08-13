@@ -37,8 +37,8 @@ describe RaffleService do
         end
       end
 
-      xit "a member x don't get a member y that get the member x" do
-        # Desafio
+      it "a member x doesn't get a member y that got the member x" do
+        expect(@results.select{|member, friend| @results[friend] == member}).to be_empty
       end
 
     end
