@@ -1,24 +1,28 @@
-# README
+![ruby](https://img.shields.io/badge/Ruby-2.4.1-red.svg)
+![rails](https://img.shields.io/badge/Rails-5.0.1-red.svg)
+![rails](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Nosso Amigo Secreto (Kriss Kringle / Secret Santa Play)
 
-Things you may want to cover:
+----
+## About this project
+This project makes possible create a secret santa / kriss kringle play. You can create a different secret santa like in your work or neighboorhood.
 
-* Ruby version
+![Nosso Amigo Secreto](https://raw.githubusercontent.com/rafael-acerqueira/nosso-amigo-secreto/master/app/assets/images/home.png)
 
-* System dependencies
+----
+## How it works?
+After you create, you add participats, raffle them and everyone receive a email. In this email each person knows who they have to give a gift.
 
-* Configuration
+![Nosso Amigo Secreto](https://raw.githubusercontent.com/rafael-acerqueira/nosso-amigo-secreto/master/app/assets/images/campaign.png)
 
-* Database creation
+----
+## Getting Started
+    1. docker-compose build
+    2. docker-compose run --rm website rake db:create db:migrate
+    3. docker-compose up
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+----
+## Test
+    docker-compose run --rm website rspec
